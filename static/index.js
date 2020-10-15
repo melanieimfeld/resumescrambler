@@ -13,7 +13,9 @@
             fixedBodies = [],
             counter = 0;
 
-        let engine = Engine.create();
+        let engine = Engine.create({
+            enableSleeping:true
+        });
 
         engine.world.gravity.y = 3 //gravity speed
 
@@ -59,7 +61,7 @@
 
         const interval = setInterval(() => {
             if(counter < bodies.length){
-                console.log(bodies[counter]);
+                console.log(bodies[counter].isSleeping);
                 World.add(engine.world, bodies[counter]);
                 counter ++;
             } else{
@@ -96,7 +98,10 @@
         World.add(engine.world, fixedBodies);
         World.add(engine.world, mouseConstraint)
 
+
         Engine.run(engine);
+        
+
         Render.run(render);
         //Runner.run(runner, engine)
     }

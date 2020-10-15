@@ -4,12 +4,31 @@ import pandas as pd
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
+def readDoc(name):
+	letters = {}
+	t = open(name, encoding="utf-8")
+	try:
+		for line in t:
+			for char in line.lower().lstrip().replace("\n","").replace(" ",""):
+				if char in letters.keys():
+					letters[char] = letters[char] + 1
+				else:
+					letters[char] = 1
+			#print(t.read().lower())
+	except UnicodeDecodeError:
+		print("wrong decoding")
+	finally:
+		#pass
+		t.close()
+		return letters
+
 
 @app.route('/', methods = ["GET"])
 def index():
-	# with open("./static/resume.txt", encoding="utf-8") as t:
-	# 	txt = t.read()
-	# 	t.close()
+	
+	txt = readDoc("static/resume.txt")
+
+	print(txt)
 
 	with open("./static/images/o.svg", "r") as i:
 		svg = i.read()
