@@ -6,7 +6,11 @@
             World = Matter.World,
             Bodies = Matter.Bodies,
             Runner = Matter.Runner,
+            Events = Matter.Events,
+            Common = Matter.Common,
+            Composites = Matter.Composites,
             MouseConstraint = Matter.MouseConstraint,
+            Sleeping = Matter.Sleeping,
             Mouse = Matter.Mouse;
 
         let bodies = [],
@@ -14,10 +18,11 @@
             counter = 0;
 
         let engine = Engine.create({
-            enableSleeping:true
-        });
+            enableSleeping: true
+        }),
+        world = engine.world;
 
-        engine.world.gravity.y = 3 //gravity speed
+        //engine.world.gravity.y = 3 //gravity speed
 
         let render = Render.create({
                         element: document.body,
@@ -36,6 +41,7 @@
                 //inertia : 0.000001,
                 //density : 0.00001,
                 restitution: 0.4,
+                sleepThreshold: 20,
                   render: {
                     sprite: {
                       texture: "static/images/" + file,
@@ -49,25 +55,28 @@
 
     
         for (const key in dict){
-            console.log(key, dict[key]);
+            //console.log(key, dict[key]);
             for (var i = 0; i < dict[key]["count"]; i++){
                 bodies.push(createBody(dict[key]["img"]));
             }
         }
     
-        console.log(bodies.length);
+        //console.log(bodies.length);
 
-        console.log(bodies);
+        //console.log(bodies);
 
         const interval = setInterval(() => {
             if(counter < bodies.length){
-                console.log(bodies[counter].isSleeping);
-                World.add(engine.world, bodies[counter]);
+                //console.log(bodies[counter].isSleeping);
+                World.add(world, bodies[counter]);
+                //Sleeping.set(bodies[counter], true);
                 counter ++;
             } else{
             clearInterval(interval);
             }
         }, 100)
+
+        //World.add(engine.world, bodies);
 
     //finetuning of options here: https://brm.io/matter-js/docs/classes/Body.html
 
@@ -95,13 +104,24 @@
         });
 
 
-        World.add(engine.world, fixedBodies);
-        World.add(engine.world, mouseConstraint)
+        World.add(world,fixedBodies);
+        World.add(world, mouseConstraint)
+
+        
+        
+        for (var i = 0; i < bodies.length; i++) {
+            Events.on(bodies[i], 'sleepStart sleepEnd', function(event) {
+                var body = this;
+                console.log('body id', body.id, 'sleeping:', body.isSleeping);
+            });
+        }
+
+        console.log(render);
+        // let sleeping  = bodies.filter((body) => body.isSleeping == true);
+        // console.log("sleeping", sleeping);
 
 
         Engine.run(engine);
-        
-
         Render.run(render);
         //Runner.run(runner, engine)
     }

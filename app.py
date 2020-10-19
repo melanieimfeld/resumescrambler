@@ -3,6 +3,7 @@ import pandas as pd
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 def readDoc(name):
 	letters = {}
@@ -35,10 +36,10 @@ def index():
 		i.close()
 
 	letters = {
-	"t":{"img":"t.png", "count":20}, 
+	"t":{"img":"t.png", "count":100}, 
 	"o":{"img":"o.png", "count":100}, 
-	"m":{"img":"m.png", "count":10}, 
-	"e":{"img":"e.png", "count":100},
+	"m":{"img":"m.png", "count":200}, 
+	"e":{"img":"e.png", "count":200},
 	"q":{"img":"q.png", "count":2}
 	}
 
