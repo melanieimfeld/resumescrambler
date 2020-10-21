@@ -37,7 +37,7 @@
 
 
         function createBody(file){
-            let body = Bodies.circle(Math.random()*(render.options.width-80), 0, 15, {
+            let options = {
                 //inertia : 0.000001,
                 //density : 0.00001,
                 restitution: 0.4,
@@ -49,8 +49,10 @@
                        yScale: 0.35
                     }
                   }
-                });
-                return body;
+            };
+            //let body = Bodies.circle(Math.random()*(render.options.width-80), 0, 15, options);
+            let body = Bodies.rectangle(Math.random()*(render.options.width-80), 0, 27, 27, options);
+            return body;
         }
 
     
