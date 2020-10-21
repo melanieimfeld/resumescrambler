@@ -39,19 +39,19 @@
         function createBody(file){
             let options = {
                 //inertia : 0.000001,
-                //density : 0.00001,
+                density : 0.005, //default 0.001
                 restitution: 0.4,
-                sleepThreshold: 20,
-                  render: {
+                sleepThreshold: 10,
+                render: {
                     sprite: {
-                      texture: "static/images/" + file,
+                      texture: file,
                        xScale: 0.35,
                        yScale: 0.35
                     }
                   }
             };
             //let body = Bodies.circle(Math.random()*(render.options.width-80), 0, 15, options);
-            let body = Bodies.rectangle(Math.random()*(render.options.width-80), 0, 27, 27, options);
+            let body = Bodies.rectangle(Math.random()*(render.options.width-80), 0, 15, 15, options);
             return body;
         }
 
@@ -76,7 +76,7 @@
             } else{
             clearInterval(interval);
             }
-        }, 100)
+        }, 50)
 
         //World.add(engine.world, bodies);
 
@@ -111,14 +111,34 @@
 
         
         
-        for (var i = 0; i < bodies.length; i++) {
-            Events.on(bodies[i], 'sleepStart sleepEnd', function(event) {
+        // for (var i = 0; i < bodies.length; i++) {
+        //     Events.on(bodies[i], 'sleepStart sleepEnd', function(event) {
+        //         var body = this;
+        //         console.log('body id', body.id, 'sleeping:', body.isSleeping);
+        //     });
+        // }
+         Events.on(engine, 'afterUpdate', function(event) {
                 var body = this;
-                console.log('body id', body.id, 'sleeping:', body.isSleeping);
-            });
-        }
+                let static  = bodies.filter((body) => body.speed > 17.01);
 
-        console.log(render);
+                static.forEach(body => {
+                    body.isStatic = true;
+                });
+
+
+                console.log("monitor body", bodies[1]);
+                //body.isStatic = true;
+            });
+
+        // for (var i = 0; i < bodies.length; i++) {
+        //     Events.on(bodies[i], 'collisionStart', function(event) {
+        //         var body = this;
+        //         console.log("collision", body);
+        //         //body.isStatic = true;
+        //     });
+        // }
+
+        //console.log(render);
         // let sleeping  = bodies.filter((body) => body.isSleeping == true);
         // console.log("sleeping", sleeping);
 

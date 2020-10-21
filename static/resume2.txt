@@ -1,30 +1,0 @@
-M E L AN I E I M F EL D | N E W HAV E N ( C T ) | (332) 220-9334
-Web: www.melanieimfeld.com | Code: github.com/melanieimfeld | Email: melanie_imfeld@outlook.com 
-EXPERIENCE
-Digital Transformation Analyst at Accenture | Zurich2018-2020* Initiated the use of data visualization for user research, such as Social Media text mining (Python), and currently develops interactive reporting dashboards ingesting approx. 130k rows of data to support a financial services provider with a worldwide IT reorganization (Tableau Desktop)
-* Collaborated with a team of data scientists and lead the development of a dashboard visualizing non-financial risk metrics for the same financial services provider (Tableau Desktop & Server)
-* Develops design sprints from strategy to product development for clients on C-level (i.e. Financial services, Insurance, Life sciences). Led the design sprint for a CI/CD pipeline implementation at a German financial services provider
-* Manages the Accenture Cloud Innovation Center, a laboratory for cloud proofs of concept, which has influenced sales of $6.5m in 2019. In charge of partner relationships and deployment of demos
-Freelance Map Developer | Zurich2018-2020* Led the development of all print maps for a book publication and ETH doctoral thesis on the urban development of the Lagos ? Abidjan corridor (QGIS, Illustrator)
-* Developed various maps, such as an interactive web map on church properties in Zurich for a thesis project or personal movement maps based on Google Location data (JavaScript, Mapbox)
-Architect & Urban Planner at Carlo Ratti Associati | Turin & New York City2017* Optimized the layout of a high-rise visitor center in Manhattan by conducting a temporal analysis of visitor flow data in Excel (United States)  
-* Led the geospatial analysis in QGIS for the redesign of a mid-size industrial property into a commercial mixed-use development for an international real estate investor (Italy)  
-Sustainability Project Lead of ETH Week 2016 at ETH Sustainability | Zurich2015-2016* Designed the curriculum, provided shift schedules and allocated budgets (CHF 500k) for a 1-week innovation sprint on the topic of ?water? involving over 200 participants from ETH and industry experts  
-Research Assistant Urban Think Tank at ETH Zurich | Zurich2013-2015* Urban design and research for the ?F?brica de Cultura?- project, a cultural center in Colombia. Won International Architecture Award from the Chicago Athenaeum
-EDUCATION
-Fellow at Recurse Center | New York City
-* The Recurse Center is a self-directed, community-driven educational retreat for programmers. Involved in pair programming, code review and independent software development2020-presentMSc Spatial Data Science and Visualization - University College London | London2017-2018* Graduated with distinction 
-* Selected projects: ?Can we predict function based on form? Using Machine Learning to predict building functions? (Python, QGIS) ?A crowdsourcing platform for classifying vacant land? (JavaScript)   
-* Relevant coursework: Geographic Information Systems and Science, Server Programming and Structured Data, Quantitative Methods (Regression models, Hypothesis testing, Machine Learning)  
-MSc and BSc in Architecture & Urban Planning ? ETH Zurich | Zurich2009-2015* MSc grading average: 5.24 (6 represents highest grade)   
-SKILLS
-Data Visualization:  
-* JavaScript (D3, Mapbox gl, Leaflet), HTML & CSS, Tableau (Tableau Specialist Certification)
-Data Analysis:  
-* Python (Geopandas, Pandas, Numpy, Sklearn), ESRI ArcGIS Desktop, QGIS, Excel, MySQL, PostgreSQL
-Other:  
-* Adobe Design Suite, UX / UI, AutoCad, Rhinoceros 3D, Vectorworks, Git  
-LECTURES, AWARDS & SCHOLARSHIPS
-Keynote ?How Maps shape our Perspective on Reality? at Interactive Things | Zurich2019* Invited talk with 50 attendees on geospatial data visualizations and their impact on decision making 
-Information is Beautiful Award2019* Longlisted for the award with the interactive visualization Foreign Aid Across the Globe  
-Scholarship by the IKEA Foundation for young designers2018* Scholarship covered the full tuition of the MSc Spatial Data Science and Visualization (18,000 CHF)
