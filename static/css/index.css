@@ -9,3 +9,25 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+
+#textbox{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background: black;
+	color: white;
+	padding: 10px;
+}
+
+
+.wrapper{
+	display:flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+#gamecanvas{
+	background: black;
+	flex-grow: 1;
+}

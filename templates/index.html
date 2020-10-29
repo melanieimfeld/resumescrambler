@@ -15,8 +15,14 @@
 <body>
 
 <!-- <div id = "hidden"> {{ svg | safe }} </div> -->
+<div class = "wrapper">
+	<div id="textbox"> Progress:</div>
+	<div id="gamecanvas"></div>
+</div>
 	<script type="text/javascript">
-		scramble({{ letters |tojson }});
+		$(document).ready(function(){
+			scramble({{ letters | tojson }});
+		});
 	</script>
 
 	</body>
