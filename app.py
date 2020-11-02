@@ -8,7 +8,7 @@ import os.path
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 PATH = "static/images/"
-DOCNAME = "static/resume_short.txt"
+DOCNAME = "static/resume.txt"
 
 def readDoc(name):
 	letters = {}

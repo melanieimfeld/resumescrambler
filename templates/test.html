@@ -1,0 +1,29 @@
+
+<html>
+<head>
+
+</head>
+<style type="text/css">
+	.wrapper{
+		display: flex;
+	}
+
+</style>
+<body>
+
+<!-- <div id = "hidden"> {{ svg | safe }} </div> -->
+<div class = "wrapper">
+	<div id="dash">
+		<div id="textbox"> Decomposition progress: </div>
+		<canvas id="progress"> </canvas>
+	</div>
+	<div id="gamecanvas"></div>
+</div>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			scramble({{ letters | tojson }});
+		});
+	</script>
+
+	</body>
+</html>

@@ -1,33 +1,61 @@
 #hidden {
-
 	display: none;
 }
 
-
 html, body {
-  width:  100%;
-  height: 100%;
-  margin: 0;
+	width:  100%;
+	height: 100%;
+	margin: 0;
+	background: black;
+}
+
+@media only screen (max-width: 400px){
+	.wrapper{
+		display:flex; 
+		flex-direction: column;
+	}
 }
 
 
+.wrapper{
+	display:flex;
+/*	flex-direction: column;*/
+	min-height: 100vh;
+	justify-content: center;
+}
+
 #textbox{
 	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
+	text-align: left;
 	background: black;
 	color: white;
 	padding: 10px;
 }
 
 
-.wrapper{
-	display:flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-
 #gamecanvas{
 	background: black;
+	order: 2;
+	flex: 3;
 	flex-grow: 1;
 }
+
+
+#dash{
+	background: black;
+	margin: 5px;
+	order: 1;
+	flex-basis: 10%;
+}
+
+#bar{
+	background: white;
+	width: 1%;
+	height: 30px;
+}
+
+@font-face{
+    font-family: customfont;
+    src: '/static/LEMONMILK-Regular.ttf';
+}
+

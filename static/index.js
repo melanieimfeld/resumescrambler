@@ -41,6 +41,7 @@
         world = engine.world;
 
         //engine.world.gravity.y = 3 //gravity speed
+        console.log("width", document.getElementById("gamecanvas").clientWidth, "height", document.getElementById("gamecanvas").offsetHeight)
 
         let render = Render.create({
                         element: document.getElementById("gamecanvas"),
@@ -53,6 +54,8 @@
                         }
                     });
 
+
+        //Render.setPixelRatio(render, "auto");
 
         class letter {
             constructor(filepath){
@@ -89,7 +92,14 @@
                 bodies.push(l);
             }
         }
-    
+
+
+        let progress = document.getElementById("bar");
+        let step = document.getElementById("dash").clientWidth / bodies.length;
+        //let ctx = progress.getContext("2d");
+        //ctx.fillStyle = "white";
+        //ctx.fillRect(0,0,progress.width*0.01,progress.height * 0.5);
+
 
         function drop(now){
             animation = window.requestAnimationFrame(drop);
@@ -102,6 +112,9 @@
                 then = now - (elapsed % fpsInterval);
                 bodies[counter].timeofcreation = now;
                 World.add(world, bodies[counter]);
+                progress.style.width =+ step + "px";
+                console.log(progress.style.width, counter);
+                //ctx.fill();
 
                 counter ++;
                 
@@ -116,13 +129,13 @@
 
     //finetuning of options here: https://brm.io/matter-js/docs/classes/Body.html
 
-        let ground = Bodies.rectangle(render.options.width/2, render.options.height - 5, render.options.width, 30, { isStatic: true });
+        let ground = Bodies.rectangle(render.canvas.width/2, render.canvas.height + 10 , render.canvas.width, 30, { isStatic: true });
         let middle = Bodies.rectangle(render.options.width/2, render.options.height/2, 300, 7, { isStatic: true });
-        let wallLeft = Bodies.rectangle(0, render.options.height/2, 1, render.options.height, { isStatic: true });
-        let wallRight = Bodies.rectangle(render.options.width, render.options.height/2, 1, render.options.height, { isStatic: true });
+        let wallLeft = Bodies.rectangle(0, render.canvas.height/2, 1, render.canvas.height, { isStatic: true });
+        let wallRight = Bodies.rectangle(render.canvas.width, render.canvas.height/2, 1, render.canvas.height, { isStatic: true });
 
         
-        fixedBodies.push(middle);
+        //fixedBodies.push(middle);
         fixedBodies.push(wallRight);
         fixedBodies.push(wallLeft);
         fixedBodies.push(ground);
@@ -140,6 +153,9 @@
         });
 
 
+
+        console.log("progress", progress.width, progress.height);
+
         World.add(world,fixedBodies);
         //World.add(world, mouseConstraint)
 
@@ -148,16 +164,26 @@
                 let text = document.getElementById("textbox");
                 //console.log(event.timestamp);
                 text.innerHTML = "Progress: " + (Composite.allBodies(world).length - fixedBodies.length) + "/" + bodies.length;
+                //console.log("progress", progress);
 
                 Composite.allBodies(world).forEach(body => {
                     body.timedelta = (Date.now() - body.timeofcreation) / 1000;
                     //console.log(body);
-                    if(body.timedelta > 8){
+                    if(body.timedelta > 5){
                         body.isStatic = true;
                         body.render.opacity = 0.5;
                     }
                 });
         });
+
+        window.addEventListener('resize',function(event){
+            //console.log("window", document.getElementById("gamecanvas").clientWidth, document.getElementById("gamecanvas").clientHeight, render.canvas.parentNode.getBoundingClientRect());
+            render.canvas.width = document.getElementById("gamecanvas").clientWidth;
+            render.canvas.height = document.getElementById("gamecanvas").clientHeight;
+            //render.canvas.width = document.getElementById("gamecanvas").clientWidth;
+            //render.canvas.height = document.getElementById("gamecanvas").clientWidth;
+
+        })
 
         Engine.run(engine);
         Render.run(render);
