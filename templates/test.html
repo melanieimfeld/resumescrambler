@@ -4,26 +4,57 @@
 
 </head>
 <style type="text/css">
-	.wrapper{
-		display: flex;
-	}
+.row {
+  display: flex;
+  /*flex-direction: row;*/
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%
+/*  justify-content: flex-end;*/
+
+}
+
+.column1 {
+  display: flex;
+  flex-direction: column;
+/*  flex-basis: 100%;*/
+  flex: 1;
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
+  /*flex-basis: 100%;*/
+/*   align-items: stretch;*/
+  flex: 2;
+}
+
+.blue-column {
+  background-color: blue;
+}
+
+.green-column {
+  background-color: green;
+ /* height: 100vh;*/
+}
 
 </style>
 <body>
 
-<!-- <div id = "hidden"> {{ svg | safe }} </div> -->
-<div class = "wrapper">
-	<div id="dash">
-		<div id="textbox"> Decomposition progress: </div>
-		<canvas id="progress"> </canvas>
-	</div>
-	<div id="gamecanvas"></div>
+<div class='some-page-wrapper'>
+  <div class='row'>
+    <div class='column1'>
+      <div class='blue-column'>
+        Some Text in Column OneSome Text in Column One Some Text in Column One Some Text in Column One Some Text in Column One Some Text in Column One
+      </div>
+    </div>
+    <div class='column2'>
+      <div class='green-column'>
+      	<canvas></canvas>
+        Some Text in Column Two
+      </div>
+    </div>
+  </div>
 </div>
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function(event) { 
-			scramble({{ letters | tojson }});
-		});
-	</script>
-
 	</body>
 </html>

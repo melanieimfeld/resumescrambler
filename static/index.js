@@ -1,4 +1,5 @@
-        
+    //import * from "matter-js"    
+    
     function scramble(dict){
 
         //permission must be granted: https://developer.mozilla.org/en-US/docs/Web/API/Accelerometer
@@ -96,6 +97,7 @@
 
         let progress = document.getElementById("bar");
         let step = document.getElementById("dash").clientWidth / bodies.length;
+        let newlength = 0;
         //let ctx = progress.getContext("2d");
         //ctx.fillStyle = "white";
         //ctx.fillRect(0,0,progress.width*0.01,progress.height * 0.5);
@@ -112,8 +114,9 @@
                 then = now - (elapsed % fpsInterval);
                 bodies[counter].timeofcreation = now;
                 World.add(world, bodies[counter]);
-                progress.style.width =+ step + "px";
-                console.log(progress.style.width, counter);
+                newlength = newlength + step;
+                progress.style.width = newlength + "px";
+                console.log(progress.style.width, step, newlength);
                 //ctx.fill();
 
                 counter ++;
@@ -163,7 +166,7 @@
 
                 let text = document.getElementById("textbox");
                 //console.log(event.timestamp);
-                text.innerHTML = "Progress: " + (Composite.allBodies(world).length - fixedBodies.length) + "/" + bodies.length;
+                text.innerHTML = "Decomposition Progress: " + (Composite.allBodies(world).length - fixedBodies.length) + "/" + bodies.length;
                 //console.log("progress", progress);
 
                 Composite.allBodies(world).forEach(body => {
@@ -171,7 +174,7 @@
                     //console.log(body);
                     if(body.timedelta > 5){
                         body.isStatic = true;
-                        body.render.opacity = 0.5;
+                        //body.render.opacity = 0.5;
                     }
                 });
         });
