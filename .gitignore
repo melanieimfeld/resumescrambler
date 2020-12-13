@@ -3,3 +3,4 @@
 .DS_Store
 archive
 myenv
+static/node_modules

@@ -15,18 +15,22 @@ html, body {
 	font-family: Lemonmilk, Helvetica, sans-serif;
 }
 
-@media only screen (max-width: 400px){
+/*@media only screen (max-width: 400px){
 	.wrapper{
 		display:flex; 
 		flex-direction: column;
 	}
 }
-
+*/
 
 .wrapper{
 	display:flex;
-/*	flex-direction: column; row is default*/
-	/*justify-content: center;*/
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	flex-direction: row; /*row is default*/
+	justify-content: space-between;
+	height: 100%; /*make height 100% and stretch items*/
+	align-items: stretch;
 }
 
 #textbox{
@@ -37,21 +41,21 @@ html, body {
 }
 
 
-#gamecanvas{
+
+#column1{
 	background: black;
-	order: 2;
-	flex: 3;
+	margin: 1.5rem;
+	padding: 1rem;
+	order: 1;
 	flex-grow: 1;
-	min-height: 100vh;
 }
 
-
-#dash{
+#column2{
 	background: black;
-	margin: 2rem;
-	padding: 2rem;
-	order: 1;
-	flex-basis: 10%;
+	order: 2;
+	flex-grow: 3;
+/*	flex-grow: 1;*/
+	/*min-height: 100vh;*/
 }
 
 #bar{

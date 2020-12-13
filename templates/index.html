@@ -14,10 +14,9 @@
 <body>
 
 <!-- <div id = "hidden"> {{ svg | safe }} </div> -->
-<div class = "wrapper">
-	<div>
-		<div id="dash">
-			<div id="textbox"> Decomposition Progress: </div>
+	<div class = "wrapper">
+		<div id="column1">
+			<div id="textbox">Decomposition Progress: </div>
 			<div id="bar"> </div>
 			  <form id = "myform" method = "POST" action = "" enctype="multipart/form-data">
 			    <p>
@@ -27,12 +26,12 @@
 			    <p><input type = "submit" name="Submit"></p> 
 			  </form>
 		</div>
+		<div id="column2"></div>
 	</div>
-	<div id="gamecanvas"></div>
-</div>
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function(event) { 
-			scramble({{ letters | tojson }});
+			let start = Date.now()
+			scramble({{ letters | tojson }}, start);
 		});
 	</script>
 
